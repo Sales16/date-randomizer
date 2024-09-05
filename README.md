@@ -1,1 +1,14 @@
-# date-randomizer
+# EM ANDAMENTO
+
+SQL TABLE
+CREATE TABLE lugares (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  nome VARCHAR(255) NOT NULL,
+  local VARCHAR(255) NOT NULL,
+  observacao TEXT NOT NULL,
+  preco VARCHAR(255) NOT NULL,
+  nota FLOAT NOT NULL,
+  jaFomos VARCHAR(5) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
