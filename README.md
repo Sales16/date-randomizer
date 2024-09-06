@@ -2,7 +2,7 @@
 
 O Date Randomizer é um projeto pessoal que visa ajudar usuários a decidir qual local visitar, entre uma lista de lugares que eles já gostaram ou que acham interessantes. A ideia é proporcionar uma maneira divertida e simples de sortear um local aleatoriamente, ideal para quem está em dúvida sobre o próximo passeio ou encontro.
 
-O site está disponivel aqui: Date [DATE RANDOMIZER](https://dates.alwaysdata.net/)
+O site está disponivel aqui: [DATE RANDOMIZER](https://dates.alwaysdata.net/)
 
 O projeto está hospedado no [Alwaysdata](https://www.alwaysdata.com/en/), um serviço de hospedagem que oferece planos gratuitos, tornando acessível a criação e manutenção do site.
 
