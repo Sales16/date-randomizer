@@ -1,0 +1,116 @@
+html,
+body {
+    background-color: darkslateblue;
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo {
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    margin: auto;
+    color: white;
+    max-width: 500px;
+    min-width: 250px;
+    z-index: 1;
+    margin-block: 30px;
+}
+
+.input {    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 5px 0px;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.fieldset {
+    border: 3px solid dodgerblue;
+}
+
+legend {
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.botao {
+    background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.botao:hover {
+    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+}
+
+.texto {
+    text-align: center;
+}
+
+.warning {
+    margin-top: 5px;
+    border: 3px solid rgb(220, 53, 69);
+}
+
+.botao-warning {
+    background-color: rgb(220, 53, 69);
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 767px) {
+    .container {
+        width: 75%;
+    }
+}
+
+
+/* PC / NOTEBBOK */
+@media (min-width: 768px) {
+    .container {
+        width: 580px;
+    }
+
+    .sucesso,
+    .erro {
+        width: 580px;
+    }
+}

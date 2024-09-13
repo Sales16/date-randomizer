@@ -1,0 +1,121 @@
+:root {
+    --color-1: #23232e;
+    --text-color: #f0f0f0;
+    --accent-color: #060f1d;
+}
+
+nav {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 4px;
+    height: 80px;
+    background-color: var(--color-1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo {
+    margin-right: auto;
+    text-transform: uppercase;
+    font-size: clamp(0.8em, 1.7em, 4vw);
+    font-weight: 700;
+    width: 100%;
+    padding: 0 0 0 30px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.icone {
+    font-size: 2.8em;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.links-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.links-container a {
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--text-color);
+    width: max-content;
+}
+
+.first {
+    margin-left: auto;
+}
+
+
+.links-container a:hover {
+    background-color: var(--accent-color);
+}
+
+.open-sidebar-button,
+.close-sidebar-button,
+#sidebar-active {
+    display: none;
+}
+
+@media(max-width: 1000px) {
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 245px;
+        background-color: var(--color-1);
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        transition: 0.4s ease-out;
+
+    }
+
+    .links-container a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 0 20px 30px;
+        justify-content: flex-start;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .open-sidebar-button,
+    .close-sidebar-button {
+        padding: 20px;
+        display: block;
+    }
+
+    #sidebar-active:checked~.links-container {
+        right: 0;
+    }
+
+    #sidebar-active:checked~.links-container a {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+
+    #sidebar-active:checked~#overlay {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+}

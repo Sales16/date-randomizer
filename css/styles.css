@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,
+body {
+    background-color: darkslateblue;
+    font-family: Poppins;
+    margin: 0;
+    padding: 0;
+}
+
+/* FORMULARIOS */
+
+.input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 40px));
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    color: white;
+    min-width: 250px;
+    z-index: 1;
+}
+
+fieldset {
+    border: 3px solid dodgerblue;
+}
+
+legend {
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.login {
+    padding: 10px 80px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.cadastro {
+    padding: 10px 60px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.inputBox {
+    position: relative;
+    margin: 35px 0px;
+}
+
+.input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 5px 0px;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.labelInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: .5s;
+
+}
+
+.input:focus~.labelInput,
+.input:valid~.labelInput {
+    top: -15px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+
+.rangeDiv {
+    position: relative;
+    padding-top: 25px;
+    margin-bottom: 5px;
+    margin-top: -10px;
+}
+
+.rangeInput {
+    width: 100%;
+    margin-right: 8px;
+    background: white;
+    border-radius: 15px;
+}
+
+.labelNota {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.radioDiv {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.paragrafo {
+    padding: 0px;
+    margin: 0px;
+}
+
+.valor {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.botao {
+    background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.botao:hover {
+    background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+}
+
+.linkCadastro {
+    display: block;
+    padding: 5px 0px;
+    margin-top: 5px;
+    text-align: end;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.linkCadastro:hover {
+    text-decoration: underline;
+}
+
+/* Botoes */
+
+.botoes {
+    margin-top: 25px;
+    text-align: center;
+    display: block;
+}
+
+.bt {
+    border: 0;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 18px;
+    min-width: 320px;
+    padding: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s;
+    background-color: #5301c5
+}
+
+.bt:hover,
+.bt:active {
+    background: #4d1ca3;
+    box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
+}
+
+/* Tabela */
+
+.tabela-lugares {
+    margin: auto;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    max-height: 60vh;
+    font-family: Poppins;
+    overflow-y: scroll;
+    margin-top: 30px;
+    max-width: 90vw;
+}
+
+.tabela-lugares::-webkit-scrollbar {
+    display: none;
+}
+
+.tabela {
+    color: black;
+    margin: auto;
+    border-collapse: collapse;
+    min-width: max-content;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.tb-thead {
+    background-color: #655a7c;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    color: #fff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+th:first-child {
+    border-left: none;
+}
+
+th:last-child {
+    border-right: none;
+}
+
+tbody>tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tb-body {
+    scrollbar-width: none;
+}
+
+.loading-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.loading-icon {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #6200ee;
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Icone */
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-button img {
+    width: 20px;
+    height: 20px;
+}
+
+
+.sucesso {
+    background-color: #4CAF50;
+    color: white;
+    width: 75%;
+    padding: 15px;
+    margin: 15px auto 15px auto;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+
+.erro {
+    background-color: rgba(100, 0, 0, 0.6);
+    color: white;
+    width: 75%;
+    padding: 15px;
+    margin: 15px auto 15px auto;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+.sucesso p {
+    margin: 0;
+}
+
+.acao {
+    text-align: center;
+}
+
+.imagem {
+    width: 25px;
+}
+
+.titulo {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 28px;
+}
+
+.texto {
+    color: rgb(255, 255, 255);
+    padding-inline: 15px;
+}
+
+.lista-texto {
+    color: rgb(255, 255, 255);
+}
+
+.link {
+    color: rgb(0, 132, 255);
+    text-transform: uppercase;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.txtarea {
+    width: 90%;
+    height: 300px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    margin-block: 20px;
+
+}
+
+.txtarea:focus {
+    outline: none;
+    border: 3px solid dodgerblue;
+}
+
+/*MOBILE*/
+@media (max-width: 767px) {
+    .container {
+        width: 75%;
+    }
+}
+
+
+/* PC / NOTEBBOK */
+@media (min-width: 768px) {
+    .container {
+        width: 580px;
+    }
+
+    .sucesso,
+    .erro {
+        width: 580px;
+    }
+
+    .sobre {
+        max-width: 500px;
+        margin: auto;
+        background-color: white;
+        padding: 15px;
+        margin-block: 20px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .texto,
+    .titulo,
+    .lista-texto {
+        color: black;
+    }
+}
