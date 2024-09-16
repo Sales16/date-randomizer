@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}  # ou 'key' se você usar uma chave SSH
           source: "./*"   # Todos os arquivos no repositório local
-          target: "/www/"  # Diretório de destino no AlwaysData
-          rm: false       # Não remove arquivos existentes
-          overwrite: true # Substituir arquivos existentes com o mesmo nome
+          target: "/www"  # Diretório de destino no AlwaysData
+          rm: false       # Não remove arquivos
+          overwrite: true # Substituir arquivos existentes
+          strip-components: 1  # Remove o caminho base durante o upload
