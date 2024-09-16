@@ -22,3 +22,7 @@ jobs:
           local-dir: ./   
           server-dir: /www/
           protocol: ftps
+          exclude: |
+            README.md
+            .ftp-deploy-sync-state.json
+
