@@ -1,4 +1,4 @@
-name: Deploy to AlwaysData via FTPS
+name: Deploy to AlwaysData via SFTP
 
 on:
   push:
@@ -13,41 +13,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Deploy to FTP server (Attempt 1)
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        continue-on-error: true
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./   
-          server-dir: /www/
-          protocol: ftps   
-          log-level: verbose  
-          timeout: 600        
-          state-name: ''       
-          exclude: |
-            README.md          
-            .ftp-deploy-sync-state.json  
-
-      - name: Check if deployment succeeded
-        run: |
-          if [ $? -ne 0 ]; then
-            echo "Deployment failed, retrying..."
-            exit 1
-          else
-            echo "Deployment succeeded."
-          fi
-
-  deploy-retry:
-    runs-on: ubuntu-latest
-    needs: ftp-deploy
-    if: failure()  # Executa somente se o job anterior falhar
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Deploy to FTP server (Attempt 2)
+      - name: Deploy to SFTP server
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -55,10 +21,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./   
           server-dir: /www/
-          protocol: ftps   
-          log-level: verbose  
-          timeout: 600        
-          state-name: ''       
+          protocol: sftp  
           exclude: |
             README.md          
             .ftp-deploy-sync-state.json  
