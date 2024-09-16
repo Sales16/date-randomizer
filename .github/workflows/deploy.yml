@@ -13,7 +13,38 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Deploy to FTP server
+      - name: Deploy to FTP server (Attempt 1)
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        continue-on-error: true
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./   
+          server-dir: /www/seu-diretorio   
+          protocol: ftps       
+          exclude: |
+            README.md          
+            .ftp-deploy-sync-state.json  
+
+      - name: Check if deployment succeeded
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Deployment failed, retrying..."
+            exit 1
+          else
+            echo "Deployment succeeded."
+          fi
+
+  deploy-retry:
+    runs-on: ubuntu-latest
+    needs: ftp-deploy
+    if: failure()
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Deploy to FTP server (Attempt 2)
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -21,10 +52,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./   
           server-dir: /www/
-          protocol: ftps   
+          protocol: ftps       
           exclude: |
             README.md          
             .ftp-deploy-sync-state.json  
-        retry:
-          max-attempts: 3   # Tentar 3 vezes caso falhe
-          delay-seconds: 10  # Aguardar 10 segundos entre as tentativas
