@@ -1,9 +1,9 @@
-name: Deploy no AlwaysData via FTP
+name: Deploy to AlwaysData via FTPS
 
 on:
   push:
     branches:
-      - main  # Ou a branch que você deseja monitorar
+      - main
 
 jobs:
   ftp-deploy:
@@ -16,16 +16,15 @@ jobs:
       - name: Deploy to FTP server
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ${{secrets.FTP_HOST}}
-          username: ${{secrets.FTP_USERNAME}}
-          password: ${{secrets.FTP_PASSWORD}}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./   
           server-dir: /www/
-          protocol: ftps
+          protocol: ftps   
           exclude: |
-            README.md
-            .ftp-deploy-sync-state.json
-          retry:
-            max-attempts: 3   # Tentar 3 vezes caso falhe
-            delay-seconds: 10  # Aguardar 10 segundos entre as tentativas
-
+            README.md          
+            .ftp-deploy-sync-state.json  
+        retry:
+          max-attempts: 3   # Tentar 3 vezes caso falhe
+          delay-seconds: 10  # Aguardar 10 segundos entre as tentativas
