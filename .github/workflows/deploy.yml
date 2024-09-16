@@ -18,9 +18,9 @@ jobs:
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}  # ou 'key' se você usar uma chave SSH
-          source: "./*"   # Todos os arquivos no repositório local
-          target: "/www/"  # Diretório de destino no AlwaysData (já deve existir)
-          rm: false       # Não remove arquivos
-          overwrite: true # Substituir arquivos existentes
-          debug: true     # Habilitar logs de depuração detalhados
+          password: ${{ secrets.SFTP_PASSWORD }}
+          source: "./*"   
+          target: "/www/"  
+          rm: false       
+          overwrite: true 
+          debug: true     
