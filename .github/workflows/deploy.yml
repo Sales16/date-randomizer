@@ -22,7 +22,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./   
           server-dir: /www/
-          protocol: ftps       
+          protocol: ftps   
+          log-level: verbose  
+          timeout: 600        
+          state-name: ''       
           exclude: |
             README.md          
             .ftp-deploy-sync-state.json  
@@ -39,7 +42,7 @@ jobs:
   deploy-retry:
     runs-on: ubuntu-latest
     needs: ftp-deploy
-    if: failure()
+    if: failure()  # Executa somente se o job anterior falhar
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -52,7 +55,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./   
           server-dir: /www/
-          protocol: ftps       
+          protocol: ftps   
+          log-level: verbose  
+          timeout: 600        
+          state-name: ''       
           exclude: |
             README.md          
             .ftp-deploy-sync-state.json  
