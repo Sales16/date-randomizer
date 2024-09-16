@@ -1,0 +1,23 @@
+name: Deploy to AlwaysData via FTP
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você deseja monitorar
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Deploy to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./   
+          server-dir: /www/
