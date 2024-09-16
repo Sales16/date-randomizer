@@ -3,7 +3,7 @@ name: Deploy to AlwaysData via SFTP
 on:
   push:
     branches:
-      - main
+      - main  # Ou a branch que você deseja monitorar
 
 jobs:
   sftp-deploy:
@@ -18,6 +18,8 @@ jobs:
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          source: "./*"   
-          target: "/www/"
+          password: ${{ secrets.SFTP_PASSWORD }}  # ou 'key' se você usar uma chave SSH
+          source: "./*"   # Todos os arquivos no repositório local
+          target: "/www/"  # Diretório de destino no AlwaysData
+          rm: false       # Não remove arquivos existentes
+          overwrite: true # Substituir arquivos existentes com o mesmo nome
