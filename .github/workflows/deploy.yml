@@ -1,4 +1,4 @@
-name: Deploy to AlwaysData via FTP
+name: Deploy no AlwaysData via FTP
 
 on:
   push:
@@ -25,4 +25,7 @@ jobs:
           exclude: |
             README.md
             .ftp-deploy-sync-state.json
+          retry:
+            max-attempts: 3   # Tentar 3 vezes caso falhe
+            delay-seconds: 10  # Aguardar 10 segundos entre as tentativas
 
