@@ -23,5 +23,5 @@ jobs:
           target: "/www/"  
           rm: false       
           overwrite: true 
-          port: 22        # Especificar a porta correta para SFTP
+          port: 22        # Espec
           debug: true     
