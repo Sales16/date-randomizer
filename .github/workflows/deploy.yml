@@ -20,4 +20,4 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           source: "./*"   
-          target: "/www/
+          target: "/www/"
