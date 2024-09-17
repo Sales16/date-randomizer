@@ -1,4 +1,4 @@
-name: Deploy to AlwaysData via SFTP
+name: Deploy to AlwaysData via FTPS
 
 on:
   push:
@@ -6,22 +6,24 @@ on:
       - main  # Ou a branch que você deseja monitorar
 
 jobs:
-  sftp-deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
 
-      - name: Deploy files via SFTP
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          source: "./*"   
-          target: "/www/"  
-          rm: false       
-          overwrite: true 
-          port: 22        # Espec
-          debug: true     
+    - name: 📂 Prepare files
+      run: |
+        # Remove the README file from the directory to be uploaded
+        rm -f README.md
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: './'  # Assuming your files are in the root directory
+        remote-dir: '/www'  
+        protocol: ftps
