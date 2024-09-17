@@ -12,6 +12,42 @@ body {
     font-weight: 700;
 }
 
+.sucesso {
+    background-color: #4CAF50;
+    color: white;
+    width: 75%;
+    padding: 15px;
+    margin: 15px auto 15px auto;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+.erro {
+    background-color: rgba(100, 0, 0, 0.6);
+    color: white;
+    width: 75%;
+    padding: 15px;
+    margin: 5px auto;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.sucesso p {
+    margin: 0;
+}
+
 .container {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 15px;

@@ -49,7 +49,7 @@ $resultado = $stmt->get_result();
             <a href="adicionar.php">Adicionar Local</a>
             <a href="report.php">Report</a>
             <a href="https://github.com/Sales16?tab=repositories" target="_blank">Projetos</a>
-            <a href="minha-conta.html">Minha Conta</a>
+            <a href="minha-conta.php">Minha Conta</a>
             <a href="sair.php">Sair</a>
         </div>
     </nav>

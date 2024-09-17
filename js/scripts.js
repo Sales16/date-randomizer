@@ -32,6 +32,9 @@ function fadeOutMessage(selector, delay=3000) {
     if (messageDiv) {
         setTimeout(function() {
             messageDiv.style.opacity = '0';
+            setTimeout(function() {
+                messageDiv.remove();
+            }, 500);
         }, delay);
     }
 }
@@ -41,22 +44,3 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOutMessage('.erro');
 });
 
-$(document).ready(function() {
-    $('#importUser').on('submit', function(event) {
-        event.preventDefault(); // Previne o envio padrão do formulário
-
-        var username = $('#username').val();
-
-        $.ajax({
-            url: 'import-user.php',
-            type: 'POST',
-            data: { username: username },
-            success: function(response) {
-                $('#result').html(response);
-            },
-            error: function() {
-                $('#result').html("<div class='erro'><p>Usuario não encontrado!</p></div>");
-            }
-        });
-    });
-});

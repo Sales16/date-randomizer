@@ -30,10 +30,11 @@
             <label for="sidebar-active" class="close-sidebar-button">
                 <i class="bx bx-x icone" id="menu-icon"></i>
             </label>
-            <a class="first" href="sobre.php">Sobre</a>
-            <a href="index.php">Sortear</a>
+            <a class="first" href="index.php">Incio</a>
+            <a href="sobre.php">Sobre</a>
             <a href="report.php">Report</a>
             <a href="https://github.com/Sales16?tab=repositories" target="_blank">Projetos</a>
+            <a href="minha-conta.php">Minha Conta</a>
             <a href="sair.php">Sair</a>
         </div>
     </nav>
