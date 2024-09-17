@@ -9,10 +9,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['senha']) || !isset($_SESSION[
     exit();
 }
 $user_id = $_SESSION['user_id'];
-// $stmt = $conexao->prepare("SELECT import FROM usuarios WHERE user = ?");
-// $stmt->bind_param("i", $user_id);
-// $stmt->execute();
-// $resultado = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,7 +30,7 @@ $user_id = $_SESSION['user_id'];
 <body>
     <script src="js/navbar.js" defer></script>
     <script src="js/scripts.js" defer></script>
-    <nav>
+    <nav id="navbar">
         <a class="logo" href="index.php">Date Randomizer</a>
         <input type="checkbox" id="sidebar-active">
         <label for="sidebar-active" class="open-sidebar-button">
@@ -147,8 +143,9 @@ $user_id = $_SESSION['user_id'];
         </fieldset>
         <fieldset class="warning">
             <p class="texto">Cuidado! Essas ações são irreversiveis</p>
-            <button class="botao-warning" style="margin-bottom: 15px;">Apagar dados da conta</button>
-            <button class="botao-warning">Excluir Conta</button>
+            <button class="botao-warning" style="margin-bottom: 15px;" onclick="confirmarAcao('excluirDados')">Apagar
+                dados da conta</button>
+            <button class="botao-warning" onclick="confirmarAcao('excluirConta')">Excluir Conta</button>
         </fieldset>
     </div>
 </body>

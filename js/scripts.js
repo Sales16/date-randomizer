@@ -44,3 +44,34 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOutMessage('.erro');
 });
 
+function confirmarAcao(acao) {
+    let mensagem = '';
+
+    if (acao === 'excluirDados') {
+        mensagem = "Tem certeza que deseja apagar todos os dados da conta? Essa ação é irreversível!";
+    } else if (acao === 'excluirConta') {
+        mensagem = "Tem certeza que deseja excluir a conta? Essa ação é irreversível!";
+    }
+
+    if (confirm(mensagem)) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "excluir-dados.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                document.getElementById('navbar').insertAdjacentHTML('afterend', xhr.responseText);     
+                fadeOutMessage('.erro')
+                fadeOutMessage('.sucesso')
+                if (acao === 'excluirConta') {
+                    window.location.href = "login.php";
+                }
+
+            } else {
+                document.getElementById('navbar').insertAdjacentHTML('afterend', "<div class='erro'><p>Erro ao processar sua solicitação!</p></div>");
+                fadeOutMessage('.erro')
+            }
+        };
+        xhr.send("acao=" + acao);
+    }
+}
