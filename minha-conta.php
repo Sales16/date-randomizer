@@ -79,7 +79,7 @@ if ($resultado->num_rows > 0) {
     <h1 class="titulo">Minha Conta</h1>
 
     <div class="container">
-        <form action="" method="post">
+        <form>
             <fieldset class="fieldset">
                 <legend>Importar Tabela Publica</legend>
                 <p class="texto">Deseja importar dados da tabela de Brasilia?</p>
@@ -89,14 +89,15 @@ if ($resultado->num_rows > 0) {
     </div>
 
     <div class="container">
-        <form action="" method="post">
+        <form id="importUser">
             <fieldset class="fieldset">
                 <legend>Importar Tabela de outro Usuario</legend>
                 <p class="texto">Deseja importar dados de outro usuario?</p>
-                <input type="text" class="input" placeholder="Nome do usuario">
+                <input type="text" class="input" id="username" placeholder="Nome do usuario" required>
                 <input class="botao" type="submit" name="import" id="import" value="Importar">
             </fieldset>
         </form>
+        <div id="result"></div>
     </div>
 
     <div class="container">

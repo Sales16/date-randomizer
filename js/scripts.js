@@ -36,8 +36,27 @@ function fadeOutMessage(selector, delay=3000) {
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", function() {
     fadeOutMessage('.sucesso');
     fadeOutMessage('.erro');
+});
+
+$(document).ready(function() {
+    $('#importUser').on('submit', function(event) {
+        event.preventDefault(); // Previne o envio padrão do formulário
+
+        var username = $('#username').val();
+
+        $.ajax({
+            url: 'import-user.php',
+            type: 'POST',
+            data: { username: username },
+            success: function(response) {
+                $('#result').html(response);
+            },
+            error: function() {
+                $('#result').html("<div class='erro'><p>Usuario não encontrado!</p></div>");
+            }
+        });
+    });
 });
