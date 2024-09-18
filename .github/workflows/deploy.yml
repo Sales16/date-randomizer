@@ -1,4 +1,4 @@
-name: Deploy to AlwaysData via FTPS
+name: Deploy to AlwaysData via FTP
 
 on:
   push:
@@ -6,24 +6,19 @@ on:
       - main  # Ou a branch que você deseja monitorar
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  ftp-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
+      - name: Checkout the code
+        uses: actions/checkout@v2
 
-    - name: 📂 Prepare files
-      run: |
-        # Remove the README file from the directory to be uploaded
-        rm -f README.md
-
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_HOST }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: './'  # Assuming your files are in the root directory
-        remote-dir: '/www'  
-        protocol: ftps
+      - name: Deploy to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{secrets.FTP_HOST}}
+          username: ${{secrets.FTP_USERNAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          local-dir: ./   
+          server-dir: /www/
+          protocol: ftps
