@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/geral.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer | Adicionar Local</title>
 </head>
@@ -103,7 +104,7 @@
 
                 </div>
                 <div class="radioDiv">
-                    <p class="paragrafo">Já fomos:</p>
+                    <p class="jaFomos">Já fomos:</p>
                     <input type="radio" id="sim" name="jaFomos" value="Sim" required>
                     <label for="sim">Sim</label>
                     <input type="radio" id="nao" name="jaFomos" value="Não" required>

@@ -134,7 +134,7 @@
                             id="valor"><?php echo htmlspecialchars($data['nota']); ?></span></label>
                 </div>
                 <div class="radioDiv">
-                    <p class="paragrafo">Já fomos:</p>
+                    <p class="jaFomos">Já fomos:</p>
                     <input type="radio" id="sim" name="jaFomos" value="Sim"
                         <?php echo ($data['jaFomos'] == 'Sim') ? 'checked' : ''; ?> required>
                     <label for="sim">Sim</label>

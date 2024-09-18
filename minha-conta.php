@@ -21,6 +21,7 @@ $user_id = $_SESSION['user_id'];
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/navbar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/geral.css">
     <link rel="stylesheet" href="css/minha-conta.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer | Minha Conta</title>
@@ -51,8 +52,8 @@ $user_id = $_SESSION['user_id'];
     </nav>
 
     <div class="alinhado">
-        <a href="index.php" class="voltar">
-            <i class='bx bx-arrow-back' id="icon-voltar"></i>
+        <a href="index.php" id="voltar">
+            <i class='bx bx-arrow-back' id="icone-voltar"></i>
         </a>
         <h1 class="titulo">Minha Conta</h1>
     </div>
@@ -122,11 +123,11 @@ $user_id = $_SESSION['user_id'];
 ?>
 
 
-    <div class="container" style="margin-top: 0;">
-        <form action="minha-conta.php" method="post">
+    <div class="container mt-0">
+        <form action=" minha-conta.php" method="post">
             <fieldset class="fieldset">
                 <legend>Importar Tabela Publica</legend>
-                <p class="texto">Deseja importar dados da tabela de Brasilia?</p>
+                <p class="paragrafo">Deseja importar dados da tabela de Brasilia?</p>
                 <input class="botao" type="submit" name="importarPublica" value="Importar">
             </fieldset>
         </form>
@@ -136,7 +137,7 @@ $user_id = $_SESSION['user_id'];
         <form action="minha-conta.php" method="post">
             <fieldset class="fieldset">
                 <legend>Importar Tabela de outro Usuario</legend>
-                <p class="texto">Deseja importar dados de outro usuario?</p>
+                <p class="paragrafo">Deseja importar dados de outro usuario?</p>
                 <input type="text" class="input" name="username" placeholder="Nome do usuario" required>
                 <input class="botao" type="submit" name="importarUser" value="Importar">
             </fieldset>
@@ -147,11 +148,11 @@ $user_id = $_SESSION['user_id'];
     <div class="container">
         <fieldset class="fieldset">
             <legend>Conta</legend>
-            <a href="sair.php"><button class="botao" style="margin-top: 15px;">Sair da Conta</button></a>
+            <a href="sair.php"><button class="botao mt-15">Sair da Conta</button></a>
         </fieldset>
         <fieldset class="warning">
-            <p class="texto">Cuidado! Essas ações são irreversiveis</p>
-            <button class="botao-warning" style="margin-bottom: 15px;" onclick="confirmarAcao('excluirDados')">Apagar
+            <p class="paragrafo">Cuidado! Essas ações são irreversiveis</p>
+            <button class="botao-warning mb-15" onclick="confirmarAcao('excluirDados')">Apagar
                 dados da conta</button>
             <button class="botao-warning" onclick="confirmarAcao('excluirConta')">Excluir Conta</button>
         </fieldset>
