@@ -38,6 +38,11 @@
             <a href="sair.php">Sair</a>
         </div>
     </nav>
+
+    <a href="index.php" class="voltar">
+        <i class='bx bx-arrow-back' id="icon-voltar"></i>
+    </a>
+
     <?php
     session_start();
     require_once('../arquivos/config.php');
@@ -71,7 +76,7 @@
     $conexao->close();
     ?>
 
-    <div class="container">
+    <div class="container marginMeio">
         <form action="adicionar.php" method="POST">
             <fieldset>
                 <legend>Adicionar Local</legend>

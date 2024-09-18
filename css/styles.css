@@ -18,11 +18,16 @@ body {
     box-shadow: none;
 }
 
-.container {
+.centralizado {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, calc(-50% + 40px));
+}
+.marginMeio {
+    margin: 20px auto;
+}
+.container {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 15px;
     border-radius: 15px;
@@ -290,7 +295,6 @@ tbody>tr:hover {
     height: 20px;
 }
 
-
 .sucesso {
     background-color: #4CAF50;
     color: white;
@@ -381,6 +385,19 @@ tbody>tr:hover {
 .txtarea:focus {
     outline: none;
     border: 3px solid dodgerblue;
+}
+.voltar {
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px 0 0 20px;
+}
+
+#icon-voltar {
+    font-size: 55px;
+    vertical-align: middle; /* Alinha o ícone corretamente */
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
 }
 
 /*MOBILE*/

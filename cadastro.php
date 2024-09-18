@@ -51,7 +51,7 @@
     }
     ?>
 
-    <div class="container">
+    <div class="container centralizado">
         <form action="cadastro.php" method="post">
             <fieldset>
                 <legend class="cadastro">Cadastro</legend>

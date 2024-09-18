@@ -43,7 +43,7 @@
         $conexao->close();
     }
     ?>
-    <div class="container">
+    <div class="container centralizado">
         <form action="login.php" method="POST">
             <fieldset>
                 <legend class="login">Login</legend>

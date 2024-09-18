@@ -67,7 +67,7 @@ if (isset($_POST['enviar'])) {
 }
 ?>
 
-    <div class="container">
+    <div class="container marginMeio">
         <form action="report.php" method="post">
             <fieldset style="text-align: center;">
                 <legend>Reportar</legend>

@@ -99,7 +99,7 @@
     $conexao->close();
     ?>
 
-    <div class="container">
+    <div class="container marginMeio">
         <form action="editar.php?id=<?php echo $id; ?>" method="POST">
             <fieldset>
                 <legend>Editar Local</legend>
