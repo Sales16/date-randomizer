@@ -24,6 +24,7 @@ $user_id = $_SESSION['user_id'];
     <link rel="stylesheet" href="css/geral.css">
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/minha-conta.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer | Minha Conta</title>
 
@@ -158,5 +159,23 @@ $user_id = $_SESSION['user_id'];
             <button class="botao-warning" onclick="confirmarAcao('excluirConta')">Excluir Conta</button>
         </fieldset>
     </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Eduardo Sales. Todos os direitos reservados.</p>
+            <div class="footer-nav">
+                <a href="sobre.php">Sobre</a>
+                <a href="minha-conta.php">Minha Conta</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Sales16" target="_blank" class="github">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://linkedin.com/in/" target="_blank" class="linkedin">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
