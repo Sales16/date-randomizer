@@ -1,9 +1,9 @@
-name: Deploy to AlwaysData via FTP
+name: Deploy to AlwaysData via FTPS
 
 on:
   push:
     branches:
-      - main  # Ou a branch que você deseja monitorar
+      - main
 
 jobs:
   ftp-deploy:
