@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
+
+    <style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+    }
+    </style>
 </head>
 <body>
     <script src="js/navbar.js" defer></script>

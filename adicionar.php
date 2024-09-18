@@ -15,6 +15,12 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer | Adicionar Local</title>
+    <style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+    }
+    </style>
 </head>
 
 <body>
