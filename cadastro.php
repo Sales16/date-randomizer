@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Randomizer | Cadastro</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
 </head>
 <script src="js/scripts.js" defer></script>
@@ -53,7 +54,7 @@
 
     <div class="container centralizado">
         <form action="cadastro.php" method="post">
-            <fieldset>
+            <fieldset class="fieldset">
                 <legend class="cadastro">Cadastro</legend>
                 <div class="inputBox">
                     <input type="text" name="user" id="user" class="input" autocomplete="nope" required>

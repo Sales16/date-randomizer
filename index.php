@@ -26,7 +26,9 @@ $resultado = $stmt->get_result();
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/navbar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/tabela.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer</title>
 </head>
@@ -99,7 +101,7 @@ $resultado = $stmt->get_result();
                 echo "<td>" . $user_data['nota'] . "</td>";
                 echo "<td>" . $user_data['jaFomos'] . "</td>";
                 echo "<td class='acao'><a href='editar.php?id=" . $user_data['id'] . "'><img src='img/lapis.png' class='imagem' alt='Editar'></a></td>";
-                echo "<td class='acao'><a href='excluir.php?id=" . $user_data['id'] . "' onclick='return confirm(\"Tem certeza que deseja excluir este local?\")'><img class='imagem' src='img/x.png' alt='Excluir'></a></td>";
+                echo "<td class='acao'><a href='excluir-local.php?id=" . $user_data['id'] . "' onclick='return confirm(\"Tem certeza que deseja excluir este local?\")'><img class='imagem' src='img/x.png' alt='Excluir'></a></td>";
                 echo "</tr>";
             }
             echo ('</tbody>');

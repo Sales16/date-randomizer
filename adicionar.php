@@ -10,8 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/navbar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer | Adicionar Local</title>
 </head>
@@ -79,7 +79,7 @@
 
     <div class="container marginMeio">
         <form action="adicionar.php" method="POST">
-            <fieldset>
+            <fieldset class="fieldset">
                 <legend>Adicionar Local</legend>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="input" required>

@@ -11,7 +11,8 @@
 
     <link rel="stylesheet" href="css/navbar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
 </head>
 <body>
@@ -73,7 +74,7 @@ if (isset($_POST['enviar'])) {
 
     <div class="container marginMeio">
         <form action="report.php" method="post">
-            <fieldset style="text-align: center;">
+            <fieldset class="fieldset textal-center">
                 <legend>Reportar</legend>
                 <textarea class="txtarea" name="mensagem" placeholder="Escreva aqui sua sugestão ou reporte um erro..."
                     required></textarea>

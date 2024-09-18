@@ -22,6 +22,7 @@ $user_id = $_SESSION['user_id'];
     <link rel="stylesheet" href="css/navbar.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/minha-conta.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
     <title>Date Randomizer | Minha Conta</title>

@@ -58,3 +58,9 @@
 .input {
     margin-bottom: 20px;
 }
+
+.container {
+    margin: auto;
+    margin-block: 30px;
+    max-width: 500px;
+}
