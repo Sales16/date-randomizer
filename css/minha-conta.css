@@ -131,6 +131,27 @@ legend {
     border-radius: 10px;
 }
 
+.alinhado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.voltar {
+    text-decoration: none;
+    position: absolute;
+    left: 20px;
+}
+
+#icon-voltar {
+    font-size: clamp(30px, 5vw, 55px);
+    vertical-align: middle;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
 
 @media (max-width: 767px) {
     .container {

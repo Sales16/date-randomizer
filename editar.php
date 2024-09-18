@@ -39,6 +39,9 @@
         </div>
     </nav>
 
+    <a href="index.php" class="voltar">
+        <i class='bx bx-arrow-back' id="icon-voltar"></i>
+    </a>
     <?php
     session_start();
     require_once('../arquivos/config.php');

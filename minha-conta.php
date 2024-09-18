@@ -49,6 +49,14 @@ $user_id = $_SESSION['user_id'];
             <a href="sair.php">Sair</a>
         </div>
     </nav>
+
+    <div class="alinhado">
+        <a href="index.php" class="voltar">
+            <i class='bx bx-arrow-back' id="icon-voltar"></i>
+        </a>
+        <h1 class="titulo">Minha Conta</h1>
+    </div>
+
     <?php 
     if (isset($_POST['importarPublica'])) {
         $stmt = $conexao->prepare("SELECT import FROM usuarios WHERE id = ?");
@@ -112,9 +120,9 @@ $user_id = $_SESSION['user_id'];
         $conexao->close();
     }
 ?>
-    <h1 class="titulo">Minha Conta</h1>
 
-    <div class="container">
+
+    <div class="container" style="margin-top: 0;">
         <form action="minha-conta.php" method="post">
             <fieldset class="fieldset">
                 <legend>Importar Tabela Publica</legend>

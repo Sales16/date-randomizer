@@ -50,6 +50,9 @@
         </div>
     </nav>
 
+    <a href="index.php" class="voltar">
+        <i class='bx bx-arrow-back' id="icon-voltar"></i>
+    </a>
 
     <div class="sobre">
         <h1 class="titulo">Date Randomizer</h1>
