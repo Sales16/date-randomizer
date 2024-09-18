@@ -65,6 +65,11 @@
                 lugar especial!</li>
         </ul>
 
+        <p class="texto">É possivel tambem importar os dados de tabelas de outros usuarios e temos uma tabela padrão com
+            alguns locais de Brasília para ser importada tambem. Essas opções estão acessiveis na aba <a
+                href="minha-conta.php" class="link">Minha Conta</a>.</p>
+        </p>
+
         <p class="texto">Nosso objetivo é tornar suas escolhas mais divertidas e descomplicadas. Com apenas alguns
             cliques, você terá sempre uma nova opção para explorar.</p>
 
