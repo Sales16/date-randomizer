@@ -7,6 +7,9 @@ body {
     font-family: Poppins;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .imagem {
@@ -251,6 +254,12 @@ body {
 
 .linkSobre:hover {
     text-decoration: underline;
+}
+
+/* ESPECIAIS */
+
+.marginBt {
+    margin-bottom: 35px;
 }
 
 /* MEDIA QUERIES*/

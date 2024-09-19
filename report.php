@@ -15,13 +15,6 @@
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" href="img/roleta.png" type="image/x-icon">
-
-    <style>
-    .footer {
-        position: absolute;
-        bottom: 0;
-    }
-    </style>
 </head>
 <body>
     <script src="js/navbar.js" defer></script>
@@ -80,7 +73,7 @@ if (isset($_POST['enviar'])) {
 }
 ?>
 
-    <div class="container marginMeio">
+    <div class="container marginMeio marginBt">
         <form action="report.php" method="post">
             <fieldset class="fieldset textal-center">
                 <legend>Reportar</legend>
