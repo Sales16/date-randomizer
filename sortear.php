@@ -3,9 +3,8 @@ session_start();
 require_once('../arquivos/config.php');
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['user']) || !isset($_SESSION['senha']) || !isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user']) || !isset($_SESSION['user_id'])) {
     unset($_SESSION['user']);
-    unset($_SESSION['senha']);
     unset($_SESSION['user_id']);
     header('Location: login.php');
     exit();

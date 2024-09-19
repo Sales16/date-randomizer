@@ -20,6 +20,7 @@
         $senha = $_POST['senha'];
         $senhaC = $_POST['senhaC'];
 
+        // Verifica se o usuário já existe
         $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE user = ?");
         $stmt->bind_param("s", $user);
         $stmt->execute();
@@ -34,8 +35,10 @@
                 echo "<div class='erro'><p>As senhas não coincidem!</p></div>";
             } else {
                 // Insere o novo usuário na tabela 'usuarios'
+                $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
+                
                 $stmt = $conexao->prepare("INSERT INTO usuarios (user, senha) VALUES (?, ?)");
-                $stmt->bind_param("ss", $user, $senha); // Senha sem hashing
+                $stmt->bind_param("ss", $user, $senhaHash); // Senha com hashing
                 if ($stmt->execute()) {
                     // Redireciona para a página de login após o cadastro
                     header('Location: login.php');

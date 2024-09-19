@@ -17,29 +17,35 @@
     require_once('../arquivos/config.php');
     if (isset($_POST['login'])) {
         unset($_SESSION['user']);
-        unset($_SESSION['senha']);
         unset($_SESSION['user_id']);
         $user = $_POST['user'];
         $senha = $_POST['senha'];
 
-        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE user = ? AND senha = ?");
-        $stmt->bind_param("ss", $user, $senha);
+        // Seleciona o usuário no banco de dados
+        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE user = ?");
+        $stmt->bind_param("s", $user);
         $stmt->execute();
-
         $resultado = $stmt->get_result();
 
         if ($resultado->num_rows < 1) {
-            unset($_SESSION['user']);
-            unset($_SESSION['senha']);
-            unset($_SESSION['user_id']);
-            echo "<div class='erro'><p>Usuario ou senha incorreto!</p></div>";
+            // Usuário não encontrado
+            echo "<div class='erro'><p>Usuário ou senha incorretos!</p></div>";
         } else {
+            // Verifica a senha usando password_verify
             $user_data = $resultado->fetch_assoc();
-            $_SESSION['user'] = $user;
-            $_SESSION['senha'] = $senha;
-            $_SESSION['user_id'] = $user_data['id'];
-            header('Location: index.php');
+            if (password_verify($senha, $user_data['senha'])) {
+                // Senha correta, define a sessão e redireciona
+                $_SESSION['user'] = $user;
+                $_SESSION['user_id'] = $user_data['id'];
+                header('Location: index.php');
+                exit();
+            } else {
+                // Senha incorreta
+                echo "<div class='erro'><p>Usuário ou senha incorretos!</p></div>";
+            }
         }
+
+        // Fecha a conexão
         $stmt->close();
         $conexao->close();
     }
