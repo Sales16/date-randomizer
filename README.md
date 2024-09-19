@@ -30,7 +30,6 @@ O projeto está hospedado no [Alwaysdata](https://www.alwaysdata.com/en/), um se
 
 **Tabela Lugares**
 
-SQL TABLE
 CREATE TABLE lugares (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
@@ -45,9 +44,80 @@ CREATE TABLE lugares (
 
 **Tabela Usuarios**
 
-SQL TABLE
 CREATE TABLE lugares (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user VARCHAR(45) NOT NULL,
   senha VARCHAR(45) NOT NULL,
+  import tinyint(1) DEFAULT 0,
 );
+
+
+**Tabela de Reports**
+
+CREATE TABLE lugares (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  data TIMESTAMP NOT NULL DEFAULT current_timestamp(),
+  feito enum('sim','nao') NOT NULL DEFAULT 'nao',
+  FOREIGN KEY (user_id) REFERENCES usuarios(id)
+);
+
+## CSS
+
+  - navbar.css
+    - Toda estilização nescessaria para a navbar.
+  - geral.css
+    - Estilização geral de todas as página, contém o css principal.
+  - tabela.css
+    - Estilização de todas as tabelas presentes.
+  - formulario.css
+    - Estilização de todos os forms presentes.
+  - minha-conta.css
+    - Estilização de algumas itens para a página minha-conta.php .
+  - footer.css
+    - Toda estilização nescessaria para o footer.
+
+## IMG
+
+  - lapis.png
+    - Icone do botão editar da tabela principal.
+  - x.png
+    - Icone do botão excluir da tabela principal.
+  - roleta.png
+    - Favicon.
+  - voltar.png
+    - Icone do botão voltar presente em algumas páginas.
+
+## JAVASCRIPT
+
+  - navbar.js
+    - Contém todo script nescessario para a navbar funcionar corretamente e ser responsiva.
+  - scripts.js
+    - Scripts gerais, inclui varias funções para facilitar a interação com o frontend, como redirecionamentos, manipulação com o DOM, requisições AJAX, etc.
+
+## HTML/PHP
+
+  - login.php
+    - Página de login, com um forms para realizar o login (AINDA NÃO TEM SEGURANÇA DE SENHA).
+  - cadastro.php
+    - Página de cadastro, apenas com um forms para realizar o cadastro do usuario.
+  - index.php
+    - Página principal, com sua tabela pessoal.
+  - adicionar.php
+    - Página para adicionar os locais para a sua tabela.
+  - editar.php
+    - Página identica a adicionar.php, porém com outra lógica, e o forms ja vem preenhido.
+  - excluir-local.php
+    - Apenas um script php para excluir um local.
+  - report.php
+    - Página para reportar erros, ou enviar críticas\sugestões.
+  - sortear.php
+    - Script que faz o sorteio do local, ele é rodado com AJAX pelo javascript para não ser preciso recarregar a página.
+  - sobre.php
+    - Página falando um pouco sobre o Date Randomizer.
+  - minha-conta.php
+    - Página da conta do usuario, onde pode importar a tabela publica ou de outro usuario, excluir sua conta ou seus dados.
+  - excluir-dados.php
+    - Script que exclui todos os dados da conta ou exclui a conta permanentemente, rodado com AJAX pelo javascript.
+  - sair.php
+    - Script para sair da conta.
