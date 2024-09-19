@@ -62,39 +62,6 @@ CREATE TABLE lugares (
   FOREIGN KEY (user_id) REFERENCES usuarios(id)
 );
 
-## CSS
-
-  - navbar.css
-    - Toda estilização nescessaria para a navbar.
-  - geral.css
-    - Estilização geral de todas as página, contém o css principal.
-  - tabela.css
-    - Estilização de todas as tabelas presentes.
-  - formulario.css
-    - Estilização de todos os forms presentes.
-  - minha-conta.css
-    - Estilização de algumas itens para a página minha-conta.php .
-  - footer.css
-    - Toda estilização nescessaria para o footer.
-
-## IMG
-
-  - lapis.png
-    - Icone do botão editar da tabela principal.
-  - x.png
-    - Icone do botão excluir da tabela principal.
-  - roleta.png
-    - Favicon.
-  - voltar.png
-    - Icone do botão voltar presente em algumas páginas.
-
-## JAVASCRIPT
-
-  - navbar.js
-    - Contém todo script nescessario para a navbar funcionar corretamente e ser responsiva.
-  - scripts.js
-    - Scripts gerais, inclui varias funções para facilitar a interação com o frontend, como redirecionamentos, manipulação com o DOM, requisições AJAX, etc.
-
 ## HTML/PHP
 
   - login.php
@@ -121,3 +88,36 @@ CREATE TABLE lugares (
     - Script que exclui todos os dados da conta ou exclui a conta permanentemente, rodado com AJAX pelo javascript.
   - sair.php
     - Script para sair da conta.
+
+## CSS
+
+  - navbar.css
+    - Toda estilização nescessaria para a navbar.
+  - geral.css
+    - Estilização geral de todas as página, contém o css principal.
+  - tabela.css
+    - Estilização de todas as tabelas presentes.
+  - formulario.css
+    - Estilização de todos os forms presentes.
+  - minha-conta.css
+    - Estilização de algumas itens para a página minha-conta.php.
+  - footer.css
+    - Toda estilização nescessaria para o footer.
+
+## JAVASCRIPT
+
+  - navbar.js
+    - Contém todo script nescessario para a navbar funcionar corretamente e ser responsiva.
+  - scripts.js
+    - Scripts gerais, inclui varias funções para facilitar a interação com o frontend, como redirecionamentos, manipulação com o DOM, requisições AJAX, etc.
+
+## IMG
+
+  - lapis.png
+    - Icone do botão editar da tabela principal.
+  - x.png
+    - Icone do botão excluir da tabela principal.
+  - roleta.png
+    - Favicon.
+  - voltar.png
+    - Icone do botão voltar presente em algumas páginas.
