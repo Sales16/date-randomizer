@@ -1,0 +1,88 @@
+CREATE SCHEMA `dates_randomizer` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `dates_randomizer`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user` VARCHAR(255) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  `import` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `dates_randomizer`.`lugares` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `user_id` INT NOT NULL,
+  `nome` VARCHAR(255) NOT NULL,
+  `local` VARCHAR(255) NOT NULL,
+  `observacao` TEXT NOT NULL,
+  `preco` VARCHAR(255) NOT NULL,
+  `nota` FLOAT NOT NULL,
+  `jaFomos` VARCHAR(5) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES usuarios(id));
+  
+  CREATE TABLE `dates_randomizer`.`report` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `mensagem` TEXT NOT NULL,
+  `data` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `user_id` INT NOT NULL,
+  `feito` ENUM('sim', 'nao') NOT NULL DEFAULT 'nao',
+  FOREIGN KEY (user_id) REFERENCES usuarios(id));
+  
+  CREATE TABLE `dates_randomizer`.`lugares_brasilia` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `nome` VARCHAR(255) NOT NULL,
+  `local` VARCHAR(255) NOT NULL,
+  `observacao` TEXT NOT NULL,
+  `preco` VARCHAR(255) NOT NULL,
+  `nota` FLOAT NOT NULL,
+  `jaFomos` VARCHAR(5) NOT NULL);
+  
+INSERT INTO `dates_randomizer`.`lugares_brasilia`(id, nome, local, observacao, preco, nota, jaFomos) VALUES
+(1,"Life Nautica/Life Resort","SCEN Life Resort, Brasilia","Clube","#",0,"Não"),
+(2,"Lifebox","SCES Trecho 2, Asa Sul","Hamburgueria","$$",0,"Não"),
+(3,"Boteco Boa Praca","CLS 201, Asa Sul","Bar","#",0,"Não"),
+(4,"Espaco Papa-Capim","SCES, Asa sul","Clube/Parque","#",0,"Não"),
+(5,"Cafe Angelita","CLS 409, Asa Sul","Cafeteria","#",0,"Não"),
+(6,"Mangai","SCN Quadra 6, Asa Norte","Restaurante","$$$",0,"Não"),
+(7,"Fausto e Manoel","CLN 209, Asa Norte","Restaurante","$$",0,"Não"),
+(8,"Mazanino","Eixo Monumental","Restaurante","#",0,"Não"),
+(9,"agua Mineral","Epia","Parque/Clube","#",0,"Não"),
+(10,"JK Sup","SCES Trecho 2, Asa Sul","Sup/Parque","$",0,"Não"),
+(11,"Sante Lago","Orla JK, SCES Trecho 2, Asa Sul","Restaurante","#",0,"Não"),
+(12,"Mane Mercado","Mane Garrincha","Restaurante","$$",0,"Não"),
+(13,"Planetario","Perto do Mane Garrincha","Planetario","#",0,"Não"),
+(14,"Vitorino Restaurante","CLS 116, Asa Sul","Restaurante","#",0,"Não"),
+(15,"Venicce Beach","SHTN no Lago","Restaurante","$$$",0,"Não"),
+(16,"Bosque Park","SQN 316, Asa Norte","Restaurante","$$",0,"Não"),
+(17,"Nicolandia","Parque da Cidade","Parque de diversao","R$43,00 p.p",0,"Não"),
+(18,"Get N Go","SQN 702, Asa Norte","Hamburgueria","#",0,"Não"),
+(19,"Cine Drive-In","Perto do Mane Garrincha","Cinema","R$20,00 p.p",0,"Não"),
+(20,"Lake Deck Bar","SCEN, Asa Norte","Restaurante","#",0,"Não"),
+(21,"Orla Club","SCES, Asa sul","Clube","#",0,"Não"),
+(22,"La terrasse","No Life Resort","Restaurante","#",0,"Não"),
+(23,"Nanica","CLS 16, Asa Sul","Doceria","#",0,"Não"),
+(24,"SS Gastrobar","CLS 407, Asa Sul","Bar","#",0,"Não"),
+(25,"Origem Bar","CLN 203, Asa Norte","Bar","$$ R$35,00 por drink",0,"Não"),
+(26,"Restaurante Universal","CLS 210, Asa Sul","Restaurante","$$$",0,"Não"),
+(27,"Na Banca","Q2 Sobradinho","Restaurante","$$",0,"Não"),
+(28,"Loucos por Burguer","Q3 Sobradinho","Hamburgueria","R$40,00 p.p",0,"Não"),
+(29,"La Casita","Q2 Sobradinho","Hamburgueria","$$",0,"Não"),
+(30,"Arcorde 27","Q3 Sobradinho","Cafeteria","$$",0,"Não"),
+(31,"Rota Burger","Q17 Sobradinho","Hamburgueria","R$35,00 combo",0,"Não"),
+(32,"Artesanal Food","Q7 Sobradingo","Hamburgueria","R$30,00 combo",0,"Não"),
+(33,"Pizzaria Mar","Q12 Sobradinho","Pizzaria","R$40,00 rodizio",0,"Não"),
+(34,"Meatz Burger","CLN 110, Asa Norte","Hamburgueria","R$42,00 combo",0,"Não"),
+(35,"Cafe e um Chero","CLN 109, Asa Norte","Cafeteria","R$45,00 p.p",0,"Não"),
+(36,"DeVitto Pizza","Lago Sul","Pizzaria","R$69,90 rodizio",0,"Não"),
+(37,"Filadelfia Restaurante","Q. Central Sobradinho","Restaurante","$$",0,"Não"),
+(38,"Pontiguar","Q2 Sobradinho","Restaurante","$$",0,"Não"),
+(39,"Fogao","Q6 Sobradinho","Restaurante","$$",0,"Não"),
+(40,"Taverna Viking","Boulevard Shopping","Restaurante","#",0,"Não"),
+(41,"Outback","Iguatemi","Restaurante","R$99,90 rodizio",0,"Não"),
+(42,"Madero","Taquari","Hamburgueria","R$50,00 combo",0,"Não"),
+(43,"Jeronimo","Taquari","Hamburgueria","R$35,00 combo",0,"Não"),
+(44,"Pobre Juan","Iguatemi","Restaurante","$$$$",0,"Não"),
+(45,"Vasto","CLS 108, Asa Sul","Restaurante","$$$$",0,"Não"),
+(46,"Gordo Lanches","Q8 Sobradinho","Hamburgueria","$",0,"Não"),
+(47,"Coco Bambu","Iguatemi","Restaurante","$$$",0,"Não"),
+(48,"Alfredos Pizza","Q3 Sobradinho","Pizzaria","R$50,00 pizza",0,"Não"),
+(49,"Lord Burger","Sudoeste","Hamburgueria","$$",0,"Não"),
+(50,"L'Entrecôte de Paris","CLS 402, Asa Sul","Restaurante","R$80,00 - 120,00 p.p",0,"Não");

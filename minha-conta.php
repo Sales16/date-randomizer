@@ -60,7 +60,7 @@ $user_id = $_SESSION['user_id'];
     </div>
 
     <?php 
-    if (isset($_POST['importarPublica'])) {
+    if (isset($_POST['importarBrasilia'])) {
         $stmt = $conexao->prepare("SELECT import FROM usuarios WHERE id = ?");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
@@ -68,7 +68,7 @@ $user_id = $_SESSION['user_id'];
         if ($resultado->num_rows > 0) {
             $row = $resultado->fetch_assoc();
             if ($row['import'] == 0) { 
-                $stmt_import = $conexao->prepare("INSERT INTO lugares(nome, local, observacao, preco, nota, jaFomos, user_id) SELECT nome, local, observacao, preco, nota, jaFomos, ? FROM lugares_publicos");
+                $stmt_import = $conexao->prepare("INSERT INTO lugares(nome, local, observacao, preco, nota, jaFomos, user_id) SELECT nome, local, observacao, preco, nota, jaFomos, ? FROM lugares_brasilia");
                 $stmt_import->bind_param("i", $user_id);
                 if ($stmt_import->execute()) {
                     echo "<div class='sucesso'><p>Dados importados com sucesso!</p></div>";
@@ -131,7 +131,7 @@ $user_id = $_SESSION['user_id'];
             <fieldset class="fieldset">
                 <legend>Importar Tabela Publica</legend>
                 <p class="paragrafo">Deseja importar dados da tabela de Brasilia?</p>
-                <input class="botao" type="submit" name="importarPublica" value="Importar">
+                <input class="botao" type="submit" name="importarBrasilia" value="Importar">
             </fieldset>
         </form>
     </div>
