@@ -30,37 +30,39 @@ O projeto está hospedado no [Alwaysdata](https://www.alwaysdata.com/en/), um se
 
 **Tabela Lugares**
 
-CREATE TABLE lugares (
+CREATE TABLE dates_randomizer.lugares (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT,
+  user_id INT NOT NULL,
   nome VARCHAR(255) NOT NULL,
   local VARCHAR(255) NOT NULL,
   observacao TEXT NOT NULL,
   preco VARCHAR(255) NOT NULL,
   nota FLOAT NOT NULL,
   jaFomos VARCHAR(5) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES usuarios(id)
-);
+  FOREIGN KEY (user_id) REFERENCES usuarios(id));
 
 **Tabela Usuarios**
 
-CREATE TABLE lugares (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user VARCHAR(45) NOT NULL,
-  senha VARCHAR(45) NOT NULL,
-  import tinyint(1) DEFAULT 0,
-);
+CREATE TABLE dates_randomizer.usuarios (
+  id INT NOT NULL AUTO_INCREMENT,
+  user VARCHAR(255) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  import TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (id));
 
 
 **Tabela de Reports**
 
-CREATE TABLE lugares (
+  CREATE TABLE dates_randomizer.report (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  data TIMESTAMP NOT NULL DEFAULT current_timestamp(),
-  feito enum('sim','nao') NOT NULL DEFAULT 'nao',
-  FOREIGN KEY (user_id) REFERENCES usuarios(id)
-);
+  mensagem TEXT NOT NULL,
+  data TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  user_id` INT NOT NULL,
+  feito ENUM('sim', 'nao') NOT NULL DEFAULT 'nao',
+  FOREIGN KEY (user_id) REFERENCES usuarios(id));
+
+
+  Arquvio .sql com todos comando para a criação do banco de dados está disponivel no diretorio sql.
 
 ## HTML/PHP
 
