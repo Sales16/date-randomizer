@@ -55,10 +55,10 @@ $resultado = $stmt->get_result();
             <a href="sair.php">Sair</a>
         </div>
     </nav>
-    <main class="principal">
-        <?php
-        echo ('<h2 style="text-align: center; color: white; margin-top:30px;">Olá, ' . ucfirst($_SESSION['user']) . '!</h2>');
+    <?php
+        echo ('<h2 class="ola">Olá, ' . ucfirst($_SESSION['user']) . '!</h2>');
         ?>
+    <main class="principal">
         <div class="botoes">
             <button onclick="buscarLinhaAleatoria()" class="bt">Sortear</button>
             <button onclick="redirecionar()" id="sortearBtn" class="bt">Adicionar Local</button>
