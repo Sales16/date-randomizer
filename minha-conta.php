@@ -68,25 +68,25 @@ $user_id = $_SESSION['user_id'];
         if ($resultado->num_rows > 0) {
             $row = $resultado->fetch_assoc();
             if ($row['import'] == 0) { 
-                $sql_import = "INSERT INTO lugares(nome, local, observacao, preco, nota, jaFomos, user_id) SELECT nome, local, observacao, preco, nota, jaFomos, ? FROM lugares_publicos";
-                $stmt_import = $conexao->prepare($sql_import);
+                $stmt_import = $conexao->prepare("INSERT INTO lugares(nome, local, observacao, preco, nota, jaFomos, user_id) SELECT nome, local, observacao, preco, nota, jaFomos, ? FROM lugares_publicos");
                 $stmt_import->bind_param("i", $user_id);
                 if ($stmt_import->execute()) {
                     echo "<div class='sucesso'><p>Dados importados com sucesso!</p></div>";
-                    $sql_update = "UPDATE usuarios SET import = 1 WHERE id = ?";
-                    $stmt_update = $conexao->prepare($sql_update);
+                    $stmt_update = $conexao->prepare("UPDATE usuarios SET import = 1 WHERE id = ?");
                     $stmt_update->bind_param("i", $user_id);
                     $stmt_update->execute();
+                    $stmt_update->close();
                 } else {
                     echo "<div class='erro'><p>Erro ao importar!</p></div>";
                 }
             } else {
                 echo "<div class='erro'><p>Dados já importados!</p></div>";
             }
+            $stmt_import->close();
         } else {
             echo "<div class='erro'><p>Usuario não encontrado!</p></div>";
         }
-    $conexao->close();
+        $stmt->close();
     }
     if (isset($_POST['importarUser'])) {
         $username = $_POST['username'];
@@ -105,22 +105,24 @@ $user_id = $_SESSION['user_id'];
             $sql_result = $sql_import->get_result();
         
             if ($sql_result->num_rows > 0) {
-                $sql_insert = "INSERT INTO lugares (nome, local, observacao, preco, nota, jaFomos, user_id) SELECT nome, local, observacao, preco, nota, jaFomos, ? FROM lugares WHERE user_id = ?";
-                $stmt_insert = $conexao->prepare($sql_insert);
+                $stmt_insert = $conexao->prepare("INSERT INTO lugares (nome, local, observacao, preco, nota, jaFomos, user_id) SELECT nome, local, observacao, preco, nota, jaFomos, ? FROM lugares WHERE user_id = ?");
                 $stmt_insert->bind_param("ii", $user_id, $import_user_id);
                 if ($stmt_insert->execute()) {
                     echo "<div class='sucesso'><p>Dados importados com sucesso!</p></div>";
                 } else {
                     echo "<div class='erro'><p>Erro ao importar!</p></div>";
                 }
+                $stmt_insert->close();
             } else {
                 echo "<div class='erro'><p>Nenhum dado encontrado!</p></div>";
             }
+            $sql_import->close();
         }else {
             echo "<div class='erro'><p>Usuario não encontrado!</p></div>";
         }
-        $conexao->close();
+        $sql->close();
     }
+    $conexao->close();
 ?>
 
 

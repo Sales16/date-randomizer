@@ -1,8 +1,6 @@
 <?php 
 session_start();
 require_once('../arquivos/config.php');
-
-// Verifica se o usuário está logado
 if (!isset($_SESSION['user']) || !isset($_SESSION['user_id'])) {
     unset($_SESSION['user']);
     unset($_SESSION['user_id']);
@@ -10,22 +8,18 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Obtém o user_id da sessão
 $user_id = $_SESSION['user_id'];
 
-// Primeiro, recupera todos os lugares do usuário para atribuir IDs sequenciais
-$sql = "SELECT * FROM lugares WHERE user_id = ?";
-$stmt = $conexao->prepare($sql);
+$stmt = $conexao->prepare("SELECT * FROM lugares WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$result = $stmt->get_result();
+$resultado = $stmt->get_result();
 
 // Cria um array para armazenar os dados dos lugares com seus IDs sequenciais
 $lugares = [];
 $indice = 1;
 
-while ($row = $result->fetch_assoc()) {
-    // Armazena cada linha com um índice sequencial
+while ($row = $resultado->fetch_assoc()) {
     $lugares[] = array_merge($row, ['sequencial' => $indice++]);
 }
 
@@ -33,13 +27,10 @@ $stmt->close();
 
 // Verifica se há algum lugar para sortear
 if (count($lugares) > 0) {
-    // Sorteia um índice aleatório
     $randomIndex = array_rand($lugares);
 
-    // Obtém o lugar sorteado
     $lugarSorteado = $lugares[$randomIndex];
 
-    // Exibe o lugar sorteado com o ID sequencial
     echo('<div class="tabela-lugares">');
     echo('<table class="tabela">');
     echo('<thead class="tb-thead">');

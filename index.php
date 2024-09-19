@@ -70,9 +70,9 @@ $resultado = $stmt->get_result();
         <?php
         if ($resultado->num_rows == 0) {
             echo "<div class='erro'><p>Nenhum local adicionado!</p></div>";
-            $stmt_update = $conexao->prepare("UPDATE usuarios SET import = 0 WHERE id = ?");
-            $stmt_update->bind_param("i", $user_id);
-            $stmt_update->execute();
+            $stmt = $conexao->prepare("UPDATE usuarios SET import = 0 WHERE id = ?");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
         } else {
             echo ('<div class="tabela-lugares">');
             echo ('<table class="tabela">');

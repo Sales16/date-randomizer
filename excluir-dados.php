@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "<div class='erro'><p>Nenhum dado excluido!</p></div>";
         }
-        $stmt->close();
         $stmt_update->close();
     } elseif ($acao === 'excluirConta') {
         $stmt = $conexao->prepare("DELETE FROM usuarios WHERE id = ?");
@@ -42,12 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "<div class='erro'><p>Erro ao excluir a conta!</p></div>";
         }
-        $stmt->close();
     } else {
         echo "<div class='erro'><p>Ação inválida!</p></div>";
         
     }
-
+    $stmt->close();
 }
 $conexao->close();
 exit();

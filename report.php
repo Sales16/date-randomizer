@@ -70,6 +70,8 @@ if (isset($_POST['enviar'])) {
         echo "<div class='erro'><p>Texto vazio ou nulo!</p></div>";
     }
 }
+$stmt->close();
+$conexao->close();
 ?>
 
     <div class="container marginMeio marginBt">
