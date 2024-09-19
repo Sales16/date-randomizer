@@ -65,9 +65,9 @@ CREATE TABLE lugares (
 ## HTML/PHP
 
   - login.php
-    - Página de login, com um forms para realizar o login (AINDA NÃO TEM SEGURANÇA DE SENHA).
+    - Página de login, com um forms para realizar o login.
   - cadastro.php
-    - Página de cadastro, apenas com um forms para realizar o cadastro do usuario.
+    - Página de cadastro, apenas com um forms para realizar o cadastro do usuario. (SEGUNRANÇA COM password_hash()).
   - index.php
     - Página principal, com sua tabela pessoal.
   - adicionar.php
