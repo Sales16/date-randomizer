@@ -1,13 +1,13 @@
-CREATE SCHEMA `dates_randomizer` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE SCHEMA `date_randomizer` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE `dates_randomizer`.`usuarios` (
+CREATE TABLE `date_randomizer`.`usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user` VARCHAR(255) NOT NULL,
   `senha` VARCHAR(255) NOT NULL,
   `import` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `dates_randomizer`.`lugares` (
+CREATE TABLE `date_randomizer`.`lugares` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `user_id` INT NOT NULL,
   `nome` VARCHAR(255) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE `dates_randomizer`.`lugares` (
   `jaFomos` VARCHAR(5) NOT NULL,
   FOREIGN KEY (user_id) REFERENCES usuarios(id));
   
-  CREATE TABLE `dates_randomizer`.`report` (
+  CREATE TABLE `date_randomizer`.`report` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `mensagem` TEXT NOT NULL,
   `data` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
@@ -26,7 +26,7 @@ CREATE TABLE `dates_randomizer`.`lugares` (
   `feito` ENUM('sim', 'nao') NOT NULL DEFAULT 'nao',
   FOREIGN KEY (user_id) REFERENCES usuarios(id));
   
-  CREATE TABLE `dates_randomizer`.`lugares_brasilia` (
+  CREATE TABLE `date_randomizer`.`lugares_brasilia` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `nome` VARCHAR(255) NOT NULL,
   `local` VARCHAR(255) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `dates_randomizer`.`lugares` (
   `nota` FLOAT NOT NULL,
   `jaFomos` VARCHAR(5) NOT NULL);
   
-INSERT INTO `dates_randomizer`.`lugares_brasilia`(id, nome, local, observacao, preco, nota, jaFomos) VALUES
+INSERT INTO `date_randomizer`.`lugares_brasilia`(id, nome, local, observacao, preco, nota, jaFomos) VALUES
 (1,"Life Nautica/Life Resort","SCEN Life Resort, Brasilia","Clube","#",0,"Não"),
 (2,"Lifebox","SCES Trecho 2, Asa Sul","Hamburgueria","$$",0,"Não"),
 (3,"Boteco Boa Praca","CLS 201, Asa Sul","Bar","#",0,"Não"),
