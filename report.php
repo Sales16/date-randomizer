@@ -96,7 +96,7 @@ $conexao->close();
                 <a href="https://github.com/Sales16" target="_blank" class="github">
                     <i class='bx bxl-github'></i>
                 </a>
-                <a href="https://linkedin.com/in/" target="_blank" class="linkedin">
+                <a href="https://linkedin.com/in/eduardo-sales16" target="_blank" class="linkedin">
                     <i class='bx bxl-linkedin'></i>
                 </a>
             </div>
