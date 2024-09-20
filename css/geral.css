@@ -262,6 +262,45 @@ body {
     text-decoration: underline;
 }
 
+/* PESQUISAR */
+
+.box-pesquisar {
+    display: flex;
+    justify-content: center;
+    gap: .5%;
+}
+
+.pesquisar {
+    padding: 8px;
+    width: 350px;
+    border: none;
+    border-radius: 5px;
+}
+.pesquisar:focus {
+    outline: none;
+    border: 2px solid dodgerblue;
+}
+
+.bt-pesquisar {
+    background: #5301c5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+    width: 45px;
+    height: 45px;
+}
+#icon-search {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.bt-pesquisar:hover {
+    background: #4d1ca3;
+}
+
 /* ESPECIAIS */
 
 .marginBt {
@@ -279,6 +318,9 @@ body {
     .tituloSobre,
     .texto {
         color: white;
+    }
+    .pesquisar {
+        width: 280px;
     }
 }
 

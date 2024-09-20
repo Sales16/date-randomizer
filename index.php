@@ -67,6 +67,10 @@ $resultado = $stmt->get_result();
             <div class="loading-icon" id="loadingIcon"></div>
         </div>
         <div id="resultado"></div>
+        <div class="box-pesquisar">
+            <input type="search" class="pesquisar" id="pesquisar" placeholder="Pesquisar">
+            <button class="bt-pesquisar"><i class='bx bx-search-alt-2' id="icon-search"></i></button>
+        </div>
         <?php
         if ($resultado->num_rows == 0) {
             echo "<div class='erro'><p>Nenhum local adicionado!</p></div>";
