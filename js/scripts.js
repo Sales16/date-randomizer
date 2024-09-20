@@ -27,6 +27,21 @@ function buscarLinhaAleatoria() {
 
 }
 
+var pesquisa = document.getElementById('pesquisar');
+pesquisa.addEventListener("keydown", function(event) {
+    if(event.key === 'Enter') {
+        search();
+    }
+});
+function search() {
+    if(pesquisa.value) {
+        window.location = 'index.php?pesquisa='+pesquisa.value;
+    }
+    else {
+        window.location = 'index.php';
+    }
+}
+
 function fadeOutMessage(selector, delay=3000) {
     const messageDiv = document.querySelector(selector);
     if (messageDiv) {

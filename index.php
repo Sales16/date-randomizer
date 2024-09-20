@@ -8,10 +8,6 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user_id'])) {
     exit();
 }
 $user_id = $_SESSION['user_id'];
-$stmt = $conexao->prepare("SELECT * FROM lugares WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$resultado = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -56,9 +52,30 @@ $resultado = $stmt->get_result();
         </div>
     </nav>
     <?php
-        echo ('<h2 class="ola">Olá, ' . ucfirst($_SESSION['user']) . '!</h2>');
-        ?>
+    echo ('<h2 class="ola">Olá, ' . ucfirst($_SESSION['user']) . '!</h2>');
+    ?>
     <main class="principal">
+        <?php
+        if (!empty($_GET['pesquisa'])) {
+            $pesquisa = '%' . $_GET['pesquisa'] . '%';
+            $stmt = $conexao->prepare("SELECT * FROM lugares WHERE user_id = ? AND nome LIKE ?");
+            $stmt->bind_param("is", $user_id, $pesquisa);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            if ($resultado->num_rows == 0) {
+                echo "<div class='erro'><p>Nenhum resultado encontrado!</p></div>";
+                $stmt = $conexao->prepare("SELECT * FROM lugares WHERE user_id = ?");
+                $stmt->bind_param("i", $user_id);
+                $stmt->execute();
+                $resultado = $stmt->get_result();
+            }
+        } else {
+            $stmt = $conexao->prepare("SELECT * FROM lugares WHERE user_id = ?");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+        }
+        ?>
         <div class="botoes">
             <button onclick="buscarLinhaAleatoria()" class="bt">Sortear</button>
             <button onclick="redirecionar()" id="sortearBtn" class="bt">Adicionar Local</button>
@@ -69,7 +86,7 @@ $resultado = $stmt->get_result();
         <div id="resultado"></div>
         <div class="box-pesquisar">
             <input type="search" class="pesquisar" id="pesquisar" placeholder="Pesquisar">
-            <button class="bt-pesquisar"><i class='bx bx-search-alt-2' id="icon-search"></i></button>
+            <button class="bt-pesquisar" onclick="search()"><i class='bx bx-search-alt-2' id="icon-search"></i></button>
         </div>
         <?php
         if ($resultado->num_rows == 0) {
