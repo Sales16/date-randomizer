@@ -29,6 +29,7 @@
 }
 
 legend {
+    margin: auto;
     border: 1px solid dodgerblue;
     background-color: dodgerblue;
     padding: 10px;
@@ -36,7 +37,6 @@ legend {
     border-radius: 5px;
     font-weight: bold;
     font-size: 20px;
-    margin: auto;
 }
 
 .labelInput {
