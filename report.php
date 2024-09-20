@@ -69,8 +69,8 @@ if (isset($_POST['enviar'])) {
     else {
         echo "<div class='erro'><p>Texto vazio ou nulo!</p></div>";
     }
+    $stmt->close();
 }
-$stmt->close();
 $conexao->close();
 ?>
 
