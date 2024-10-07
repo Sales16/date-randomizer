@@ -52,7 +52,7 @@ $user_id = $_SESSION['user_id'];
         </div>
     </nav>
     <?php
-    echo ('<h2 class="ola">Olá, ' . ucfirst($_SESSION['user']) . '!</h2>');
+    echo ('<h2 class="ola">Olá, ' . htmlspecialchars(ucfirst($_SESSION['user']), ENT_QUOTES, 'UTF-8') . '!</h2>');
     ?>
     <main class="principal">
         <?php
